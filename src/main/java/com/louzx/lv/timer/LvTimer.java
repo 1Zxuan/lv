@@ -72,7 +72,7 @@ public class LvTimer {
                                 for (String user : users) {
                                     jdbcTemplateWx.update("INSERT INTO push_info (content, summary, input_date, status, send_uid) SELECT ?, '【苦蛋】LV商品库存监控', SYSDATE(), 0, ?", skuId + "有库存", user);
                                 }
-                                jdbcTemplateLv.update("UPDATE lv_check SET CLOSED = '0', LASTDATE = SYSDATE() WHERE ID = ? ", map.get("id"));
+                                jdbcTemplateLv.update("UPDATE lv_check SET CLOSED = '1', LASTDATE = SYSDATE() WHERE ID = ? ", map.get("id"));
                             }
                         }
                     } catch (Exception e) {
